@@ -1,0 +1,16 @@
+Fitter Status : Successful - Tue Jul 01 11:59:05 2014
+Quartus II 32-bit Version : 12.0 Build 263 08/02/2012 SP 2 SJ Web Edition
+Revision Name : sine
+Top-level Entity Name : sine
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Timing Models : Final
+Total logic elements : 815 / 6,272 ( 13 % )
+    Total combinational functions : 815 / 6,272 ( 13 % )
+    Dedicated logic registers : 0 / 6,272 ( 0 % )
+Total registers : 0
+Total pins : 37 / 92 ( 40 % )
+Total virtual pins : 0
+Total memory bits : 0 / 276,480 ( 0 % )
+Embedded Multiplier 9-bit elements : 2 / 30 ( 7 % )
+Total PLLs : 0 / 2 ( 0 % )

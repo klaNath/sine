@@ -1,0 +1,99 @@
+|sine
+phase[0] => Mult0.IN9
+phase[1] => Mult0.IN8
+phase[2] => Mult0.IN7
+phase[3] => Mult0.IN6
+phase[4] => Mult0.IN5
+phase[5] => Mult0.IN4
+phase[6] => Mult0.IN3
+phase[7] => Mult0.IN2
+phase[8] => Mult0.IN1
+phase[9] => Add2.IN2
+phase[9] => leap_coeff[9].DATAA
+phase[10] => rom_adrs[0].IN2
+phase[11] => rom_adrs[1].IN2
+phase[12] => rom_adrs[2].IN2
+phase[13] => rom_adrs[3].IN2
+phase[14] => rom_adrs[4].IN2
+phase[15] => rom_adrs[5].IN2
+phase[16] => rom_adrs[6].IN2
+phase[17] => rom_adrs[7].IN2
+phase[18] => Add1.IN2
+phase[18] => adrs_conv.DATAA
+phase[19] => Decoder0.IN0
+phase[19] => Decoder1.IN0
+phase[20] => Decoder2.IN0
+sine_out[0] <= quad3_4.DB_MAX_OUTPUT_PORT_TYPE
+sine_out[1] <= quad3_4.DB_MAX_OUTPUT_PORT_TYPE
+sine_out[2] <= quad3_4.DB_MAX_OUTPUT_PORT_TYPE
+sine_out[3] <= quad3_4.DB_MAX_OUTPUT_PORT_TYPE
+sine_out[4] <= quad3_4.DB_MAX_OUTPUT_PORT_TYPE
+sine_out[5] <= quad3_4.DB_MAX_OUTPUT_PORT_TYPE
+sine_out[6] <= quad3_4.DB_MAX_OUTPUT_PORT_TYPE
+sine_out[7] <= quad3_4.DB_MAX_OUTPUT_PORT_TYPE
+sine_out[8] <= quad3_4.DB_MAX_OUTPUT_PORT_TYPE
+sine_out[9] <= quad3_4.DB_MAX_OUTPUT_PORT_TYPE
+sine_out[10] <= quad3_4.DB_MAX_OUTPUT_PORT_TYPE
+sine_out[11] <= quad3_4.DB_MAX_OUTPUT_PORT_TYPE
+sine_out[12] <= quad3_4.DB_MAX_OUTPUT_PORT_TYPE
+sine_out[13] <= quad3_4.DB_MAX_OUTPUT_PORT_TYPE
+sine_out[14] <= quad3_4.DB_MAX_OUTPUT_PORT_TYPE
+sine_out[15] <= quad3_4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|sine|sin_rom:sin_rom_i
+inadrs[0] => Ram0.RADDR
+inadrs[1] => Ram0.RADDR1
+inadrs[2] => Ram0.RADDR2
+inadrs[3] => Ram0.RADDR3
+inadrs[4] => Ram0.RADDR4
+inadrs[5] => Ram0.RADDR5
+inadrs[6] => Ram0.RADDR6
+inadrs[7] => Ram0.RADDR7
+inadrs[8] => Ram0.RADDR8
+outsine[0] <= Ram0.DATAOUT
+outsine[1] <= Ram0.DATAOUT1
+outsine[2] <= Ram0.DATAOUT2
+outsine[3] <= Ram0.DATAOUT3
+outsine[4] <= Ram0.DATAOUT4
+outsine[5] <= Ram0.DATAOUT5
+outsine[6] <= Ram0.DATAOUT6
+outsine[7] <= Ram0.DATAOUT7
+outsine[8] <= Ram0.DATAOUT8
+outsine[9] <= Ram0.DATAOUT9
+outsine[10] <= Ram0.DATAOUT10
+outsine[11] <= Ram0.DATAOUT11
+outsine[12] <= Ram0.DATAOUT12
+outsine[13] <= Ram0.DATAOUT13
+outsine[14] <= Ram0.DATAOUT14
+outsine[15] <= Ram0.DATAOUT15
+
+
+|sine|diff_rom:diff_rom_i
+inadrs[0] => Ram0.RADDR
+inadrs[1] => Ram0.RADDR1
+inadrs[2] => Ram0.RADDR2
+inadrs[3] => Ram0.RADDR3
+inadrs[4] => Ram0.RADDR4
+inadrs[5] => Ram0.RADDR5
+inadrs[6] => Ram0.RADDR6
+inadrs[7] => Ram0.RADDR7
+inadrs[8] => Ram0.RADDR8
+outdiff[0] <= Ram0.DATAOUT
+outdiff[1] <= Ram0.DATAOUT1
+outdiff[2] <= Ram0.DATAOUT2
+outdiff[3] <= Ram0.DATAOUT3
+outdiff[4] <= Ram0.DATAOUT4
+outdiff[5] <= Ram0.DATAOUT5
+outdiff[6] <= Ram0.DATAOUT6
+outdiff[7] <= Ram0.DATAOUT7
+outdiff[8] <= Ram0.DATAOUT8
+outdiff[9] <= Ram0.DATAOUT9
+outdiff[10] <= Ram0.DATAOUT10
+outdiff[11] <= Ram0.DATAOUT11
+outdiff[12] <= Ram0.DATAOUT12
+outdiff[13] <= Ram0.DATAOUT13
+outdiff[14] <= Ram0.DATAOUT14
+outdiff[15] <= Ram0.DATAOUT15
+
+
