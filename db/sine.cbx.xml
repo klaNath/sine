@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="sine">
-		<CBX_INST_ENTRY INSTANCE_NAME="|sine|lpm_mult:Mult0" CBX_FILE_NAME="mult_lbt.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|sine_nco|sine:s1|lpm_mult:Mult0" CBX_FILE_NAME="mult_lbt.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

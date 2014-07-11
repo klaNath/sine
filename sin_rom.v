@@ -521,7 +521,7 @@ module	sin_rom	(
 		9'D508	:	sin_rom =	65533	;
 		9'D509	:	sin_rom =	65534	;
 		9'D510	:	sin_rom =	65535	;
-		9'D511	:	sin_rom =	65536	;
+		9'D511	:	sin_rom =	65535	;
 		default	:	sin_rom =	0	;
 		endcase				
 	end					

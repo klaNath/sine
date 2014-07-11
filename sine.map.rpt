@@ -1,5 +1,5 @@
 Analysis & Synthesis report for sine
-Tue Jul 01 11:58:55 2014
+Fri Jul 11 14:05:37 2014
 Quartus II 32-bit Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Web Edition
 
 
@@ -15,9 +15,9 @@ Quartus II 32-bit Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Web Editio
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis DSP Block Usage Summary
   9. General Register Statistics
- 10. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
+ 10. Parameter Settings for Inferred Entity Instance: sine:s1|lpm_mult:Mult0
  11. lpm_mult Parameter Settings by Entity Instance
- 12. Port Connectivity Checks: "sin_rom:sin_rom_i"
+ 12. Port Connectivity Checks: "sine:s1"
  13. Elapsed Time Per Partition
  14. Analysis & Synthesis Messages
 
@@ -45,16 +45,16 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                       ;
 +------------------------------------+-----------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Jul 01 11:58:55 2014         ;
+; Analysis & Synthesis Status        ; Successful - Fri Jul 11 14:05:37 2014         ;
 ; Quartus II 32-bit Version          ; 12.0 Build 263 08/02/2012 SP 2 SJ Web Edition ;
 ; Revision Name                      ; sine                                          ;
-; Top-level Entity Name              ; sine                                          ;
+; Top-level Entity Name              ; sine_nco                                      ;
 ; Family                             ; Cyclone IV E                                  ;
-; Total logic elements               ; 815                                           ;
-;     Total combinational functions  ; 815                                           ;
-;     Dedicated logic registers      ; 0                                             ;
-; Total registers                    ; 0                                             ;
-; Total pins                         ; 37                                            ;
+; Total logic elements               ; 905                                           ;
+;     Total combinational functions  ; 905                                           ;
+;     Dedicated logic registers      ; 34                                            ;
+; Total registers                    ; 34                                            ;
+; Total pins                         ; 18                                            ;
 ; Total virtual pins                 ; 0                                             ;
 ; Total memory bits                  ; 0                                             ;
 ; Embedded Multiplier 9-bit elements ; 2                                             ;
@@ -67,7 +67,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
-; Top-level entity name                                                      ; sine               ; sine               ;
+; Top-level entity name                                                      ; sine_nco           ; sine               ;
 ; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
 ; Verilog Show LMF Mapping Messages                                          ; Off                ;                    ;
 ; Optimization Technique                                                     ; Area               ; Balanced           ;
@@ -167,6 +167,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; sin_rom.v                        ; yes             ; User Verilog HDL File        ; C:/home/kazusa/workspace/fpga/sine/sin_rom.v                      ;         ;
 ; diff_rom.v                       ; yes             ; User Verilog HDL File        ; C:/home/kazusa/workspace/fpga/sine/diff_rom.v                     ;         ;
 ; sine.v                           ; yes             ; User Verilog HDL File        ; C:/home/kazusa/workspace/fpga/sine/sine.v                         ;         ;
+; sine_nco.v                       ; yes             ; User Verilog HDL File        ; C:/home/kazusa/workspace/fpga/sine/sine_nco.v                     ;         ;
 ; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/altera/12.0sp2/quartus/libraries/megafunctions/lpm_mult.tdf    ;         ;
 ; aglobal120.inc                   ; yes             ; Megafunction                 ; c:/altera/12.0sp2/quartus/libraries/megafunctions/aglobal120.inc  ;         ;
 ; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/altera/12.0sp2/quartus/libraries/megafunctions/lpm_add_sub.inc ;         ;
@@ -177,47 +178,48 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                   ;
-+---------------------------------------------+-----------------+
-; Resource                                    ; Usage           ;
-+---------------------------------------------+-----------------+
-; Estimated Total logic elements              ; 815             ;
-;                                             ;                 ;
-; Total combinational functions               ; 815             ;
-; Logic element usage by number of LUT inputs ;                 ;
-;     -- 4 input functions                    ; 707             ;
-;     -- 3 input functions                    ; 87              ;
-;     -- <=2 input functions                  ; 21              ;
-;                                             ;                 ;
-; Logic elements by mode                      ;                 ;
-;     -- normal mode                          ; 785             ;
-;     -- arithmetic mode                      ; 30              ;
-;                                             ;                 ;
-; Total registers                             ; 0               ;
-;     -- Dedicated logic registers            ; 0               ;
-;     -- I/O registers                        ; 0               ;
-;                                             ;                 ;
-; I/O pins                                    ; 37              ;
-; Embedded Multiplier 9-bit elements          ; 2               ;
-; Maximum fan-out node                        ; phase[10]~input ;
-; Maximum fan-out                             ; 341             ;
-; Total fan-out                               ; 3202            ;
-; Average fan-out                             ; 3.59            ;
-+---------------------------------------------+-----------------+
++---------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                         ;
++---------------------------------------------+-----------------------+
+; Resource                                    ; Usage                 ;
++---------------------------------------------+-----------------------+
+; Estimated Total logic elements              ; 905                   ;
+;                                             ;                       ;
+; Total combinational functions               ; 905                   ;
+; Logic element usage by number of LUT inputs ;                       ;
+;     -- 4 input functions                    ; 817                   ;
+;     -- 3 input functions                    ; 44                    ;
+;     -- <=2 input functions                  ; 44                    ;
+;                                             ;                       ;
+; Logic elements by mode                      ;                       ;
+;     -- normal mode                          ; 857                   ;
+;     -- arithmetic mode                      ; 48                    ;
+;                                             ;                       ;
+; Total registers                             ; 34                    ;
+;     -- Dedicated logic registers            ; 34                    ;
+;     -- I/O registers                        ; 0                     ;
+;                                             ;                       ;
+; I/O pins                                    ; 18                    ;
+; Embedded Multiplier 9-bit elements          ; 2                     ;
+; Maximum fan-out node                        ; sine:s1|rom_adrs[0]~0 ;
+; Maximum fan-out                             ; 315                   ;
+; Total fan-out                               ; 3637                  ;
+; Average fan-out                             ; 3.72                  ;
++---------------------------------------------+-----------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                       ;
-+---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------+--------------+
-; Compilation Hierarchy Node      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                          ; Library Name ;
-+---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------+--------------+
-; |sine                           ; 815 (35)          ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 37   ; 0            ; |sine                                        ;              ;
-;    |diff_rom:diff_rom_i|        ; 213 (213)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sine|diff_rom:diff_rom_i                    ;              ;
-;    |lpm_mult:Mult0|             ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |sine|lpm_mult:Mult0                         ;              ;
-;       |mult_lbt:auto_generated| ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |sine|lpm_mult:Mult0|mult_lbt:auto_generated ;              ;
-;    |sin_rom:sin_rom_i|          ; 567 (567)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sine|sin_rom:sin_rom_i                      ;              ;
-+---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                      ;
++------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------+--------------+
+; Compilation Hierarchy Node         ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                      ; Library Name ;
++------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------+--------------+
+; |sine_nco                          ; 905 (35)          ; 34 (34)      ; 0           ; 2            ; 0       ; 1         ; 18   ; 0            ; |sine_nco                                                ;              ;
+;    |sine:s1|                       ; 870 (33)          ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |sine_nco|sine:s1                                        ;              ;
+;       |diff_rom:diff_rom_i|        ; 219 (219)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sine_nco|sine:s1|diff_rom:diff_rom_i                    ;              ;
+;       |lpm_mult:Mult0|             ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |sine_nco|sine:s1|lpm_mult:Mult0                         ;              ;
+;          |mult_lbt:auto_generated| ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |sine_nco|sine:s1|lpm_mult:Mult0|mult_lbt:auto_generated ;              ;
+;       |sin_rom:sin_rom_i|          ; 618 (618)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sine_nco|sine:s1|sin_rom:sin_rom_i                      ;              ;
++------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -244,10 +246,10 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 34    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 34    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
@@ -255,7 +257,7 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 
 
 +-------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0                     ;
+; Parameter Settings for Inferred Entity Instance: sine:s1|lpm_mult:Mult0             ;
 +------------------------------------------------+--------------+---------------------+
 ; Parameter Name                                 ; Value        ; Type                ;
 +------------------------------------------------+--------------+---------------------+
@@ -289,33 +291,34 @@ Note: number of Embedded Multiplier Blocks used is only available after a succes
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------+
-; lpm_mult Parameter Settings by Entity Instance         ;
-+---------------------------------------+----------------+
-; Name                                  ; Value          ;
-+---------------------------------------+----------------+
-; Number of entity instances            ; 1              ;
-; Entity Instance                       ; lpm_mult:Mult0 ;
-;     -- LPM_WIDTHA                     ; 8              ;
-;     -- LPM_WIDTHB                     ; 10             ;
-;     -- LPM_WIDTHP                     ; 18             ;
-;     -- LPM_REPRESENTATION             ; UNSIGNED       ;
-;     -- INPUT_A_IS_CONSTANT            ; NO             ;
-;     -- INPUT_B_IS_CONSTANT            ; NO             ;
-;     -- USE_EAB                        ; OFF            ;
-;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
-;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
-;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
-+---------------------------------------+----------------+
++----------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                 ;
++---------------------------------------+------------------------+
+; Name                                  ; Value                  ;
++---------------------------------------+------------------------+
+; Number of entity instances            ; 1                      ;
+; Entity Instance                       ; sine:s1|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 8                      ;
+;     -- LPM_WIDTHB                     ; 10                     ;
+;     -- LPM_WIDTHP                     ; 18                     ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED               ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                     ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                     ;
+;     -- USE_EAB                        ; OFF                    ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                   ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                     ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                     ;
++---------------------------------------+------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "sin_rom:sin_rom_i"                                                                        ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port       ; Type   ; Severity ; Details                                                                             ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; outsine[0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sine:s1"                                                                                                                               ;
++-------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                                                                         ;
++-------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+; phase[2..0] ; Input  ; Info     ; Stuck at GND                                                                                                                    ;
+; sine_out    ; Output ; Warning  ; Output or bidir port (17 bits) is wider than the port expression (16 bits) it drives; bit(s) "sine_out[16..16]" have no fanouts ;
++-------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -323,7 +326,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:23     ;
+; Top            ; 00:00:19     ;
 +----------------+--------------+
 
 
@@ -333,7 +336,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 12.0 Build 263 08/02/2012 Service Pack 2 SJ Web Edition
-    Info: Processing started: Tue Jul 01 11:58:39 2014
+    Info: Processing started: Fri Jul 11 14:05:24 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off sine -c sine
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file sin_rom.v
@@ -342,18 +345,24 @@ Info (12021): Found 1 design units, including 1 entities, in source file diff_ro
     Info (12023): Found entity 1: diff_rom
 Info (12021): Found 1 design units, including 1 entities, in source file sine.v
     Info (12023): Found entity 1: sine
-Info (12127): Elaborating entity "sine" for the top level hierarchy
+Info (12021): Found 1 design units, including 1 entities, in source file sine_nco.v
+    Info (12023): Found entity 1: sine_nco
+Info (12127): Elaborating entity "sine_nco" for the top level hierarchy
+Warning (10240): Verilog HDL Always Construct warning at sine_nco.v(15): inferring latch(es) for variable "phase", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "phase[0]" at sine_nco.v(15)
+Info (10041): Inferred latch for "phase[1]" at sine_nco.v(15)
+Info (10041): Inferred latch for "phase[2]" at sine_nco.v(15)
+Info (12128): Elaborating entity "sine" for hierarchy "sine:s1"
 Warning (10230): Verilog HDL assignment warning at sine.v(57): truncated value with size 17 to match size of target (16)
-Info (12128): Elaborating entity "sin_rom" for hierarchy "sin_rom:sin_rom_i"
-Warning (10230): Verilog HDL assignment warning at sin_rom.v(524): truncated value with size 32 to match size of target (16)
-Info (12128): Elaborating entity "diff_rom" for hierarchy "diff_rom:diff_rom_i"
+Info (12128): Elaborating entity "sin_rom" for hierarchy "sine:s1|sin_rom:sin_rom_i"
+Info (12128): Elaborating entity "diff_rom" for hierarchy "sine:s1|diff_rom:diff_rom_i"
 Info (276014): Found 2 instances of uninferred RAM logic
-    Info (276007): RAM logic "sin_rom:sin_rom_i|Ram0" is uninferred due to asynchronous read logic
-    Info (276007): RAM logic "diff_rom:diff_rom_i|Ram0" is uninferred due to asynchronous read logic
+    Info (276007): RAM logic "sine:s1|sin_rom:sin_rom_i|Ram0" is uninferred due to asynchronous read logic
+    Info (276007): RAM logic "sine:s1|diff_rom:diff_rom_i|Ram0" is uninferred due to asynchronous read logic
 Info (278001): Inferred 1 megafunctions from design logic
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult0"
-Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult0"
-Info (12133): Instantiated megafunction "lpm_mult:Mult0" with the following parameter:
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "sine:s1|Mult0"
+Info (12130): Elaborated megafunction instantiation "sine:s1|lpm_mult:Mult0"
+Info (12133): Instantiated megafunction "sine:s1|lpm_mult:Mult0" with the following parameter:
     Info (12134): Parameter "LPM_WIDTHA" = "8"
     Info (12134): Parameter "LPM_WIDTHB" = "10"
     Info (12134): Parameter "LPM_WIDTHP" = "18"
@@ -365,17 +374,18 @@ Info (12133): Instantiated megafunction "lpm_mult:Mult0" with the following para
     Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
 Info (12021): Found 1 design units, including 1 entities, in source file db/mult_lbt.tdf
     Info (12023): Found entity 1: mult_lbt
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 854 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 21 input pins
+Info (21057): Implemented 925 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
     Info (21059): Implemented 16 output pins
-    Info (21061): Implemented 815 logic cells
+    Info (21061): Implemented 905 logic cells
     Info (21062): Implemented 2 DSP elements
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 328 megabytes
-    Info: Processing ended: Tue Jul 01 11:58:55 2014
-    Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:15
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 321 megabytes
+    Info: Processing ended: Fri Jul 11 14:05:37 2014
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:13
 
 
